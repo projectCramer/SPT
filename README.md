@@ -1,0 +1,2 @@
+# SPT
+Cramerovo pravidlo
