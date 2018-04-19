@@ -15,60 +15,63 @@ namespace ConsoleApp8
             Console.WriteLine("Já vás poprosím o zadání hodnot A,B,C a D a ukážu vám výsledky x1,x2 a x3.");
             Console.WriteLine("\nPRVNÍ ROVNICE:");
             Console.WriteLine("A:");
-            int A1 = Convert.ToInt32(Console.ReadLine());
+            double A1 = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("B:");
-            int B1 = Convert.ToInt32(Console.ReadLine());
+            double B1 = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("C:");
 
-            int C1 = Convert.ToInt32(Console.ReadLine());
+            double C1 = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("D:");
-            int D1 = Convert.ToInt32(Console.ReadLine());
+            double D1 = Convert.ToDouble(Console.ReadLine());
 
             Console.WriteLine("\nDRUHÁ ROVNICE:");
             Console.WriteLine("A:");
-            int A2 = Convert.ToInt32(Console.ReadLine());
+            double A2 = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("B:");
-            int B2 = Convert.ToInt32(Console.ReadLine());
+            double B2 = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("C:");
-            int C2 = Convert.ToInt32(Console.ReadLine());
+            double C2 = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("D:");
-            int D2 = Convert.ToInt32(Console.ReadLine());
+            double D2 = Convert.ToDouble(Console.ReadLine());
 
             Console.WriteLine("\nTŘETÍ ROVNICE:");
             Console.WriteLine("A:");
-            int A3 = Convert.ToInt32(Console.ReadLine());
+            double A3 = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("B:");
-            int B3 = Convert.ToInt32(Console.ReadLine());
+            double B3 = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("C:");
-            int C3 = Convert.ToInt32(Console.ReadLine());
+            double C3 = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("D:");
-            int D3 = Convert.ToInt32(Console.ReadLine());
+            double D3 = Convert.ToDouble(Console.ReadLine());
 
-            int determinantMatice = 
+            double determinantMatice = 
                 ((A1 * B2 * C3) + (A3 * B1 * C2) + (A2 * B3 * C1)) 
                 - ((A3 * B2 * C1) + (A2 * B1 * C3) + (A1 * B3 * C2));
             Console.WriteLine($"Determinant matice = {determinantMatice}");
 
-            int determinantMaticeA1 =
+            double determinantMaticeA1 =
                 ((D1 * B2 * C3) + (D3 * B1 * C2) + (D2 * B3 * C1))
                 - ((D3 * B2 * C1) + (D2 * B1 * C3) + (D1 * B3 * C2));
             Console.WriteLine($"Determinant matice A1 = {determinantMaticeA1}");
 
-            int determinantMaticeA2 =
+            double determinantMaticeA2 =
                 ((A1 * D2 * C3) + (A3 * D1 * C2) + (A2 * D3 * C1))
                 - ((A3 * D2 * C1) + (A2 * D1 * C3) + (A1 * D3 * C2));
             Console.WriteLine($"Determinant matice A2 = {determinantMaticeA2}");
 
-            int determinantMaticeA3 =
+            double determinantMaticeA3 =
                 ((A1 * B2 * D3) + (A3 * B1 * D2) + (A2 * B3 * D1))
                 - ((A3 * B2 * D1) + (A2 * B1 * D3) + (A1 * B3 * D2));
             Console.WriteLine($"Determinant matice A3 = {determinantMaticeA3}");
-            
-            int x1 = determinantMaticeA1 / determinantMatice;
-            int x2 = determinantMaticeA2 / determinantMatice;
-            int x3 = determinantMaticeA3 / determinantMatice;
 
-            Console.WriteLine($"Řešením této soustavy jsou čísla: {x1}, {x2}, {x3}.");
+            double x1 = determinantMaticeA1 / determinantMatice;
+            x1 = Math.Round(x1, 4);
+            double x2 = determinantMaticeA2 / determinantMatice;
+            x2 = Math.Round(x2, 4);
+            double x3 = determinantMaticeA3 / determinantMatice;
+            x3 = Math.Round(x3, 4);
+
+            Console.WriteLine($"Řešením této soustavy jsou čísla: {x1}; {x2}; {x3}.");
 
             Console.WriteLine("Ukončíte stiknutím libovolné klávesy.");
             Console.Read();
