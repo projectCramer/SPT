@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,10 +44,25 @@ namespace ConsoleApp8
             Console.WriteLine("D:");
             int D3 = Convert.ToInt32(Console.ReadLine());
 
-            int determinantMatice = (((A1) + (B2) + (C3)) + ((A3) + (B1) + (C2)) + ((A2) + (B3) + (C1))) - (((A3) + (B2) + (C1)) + ((A2) + (B1) + (C3)) + ((A1) + (B3) + (C2)));
+            int determinantMatice = 
+                ((A1 * B2 * C3) + (A3 * B1 * C2) + (A2 * B3 * C1)) 
+                - ((A3 * B2 * C1) + (A2 * B1 * C3) + (A1 * B3 * C2));
             Console.WriteLine($"Determinant matice = {determinantMatice}");
 
-            //int determinant;
+            int determinantMaticeA1 =
+                ((D1 * B2 * C3) + (D3 * B1 * C2) + (D2 * B3 * C1))
+                - ((D3 * B2 * C1) + (D2 * B1 * C3) + (D1 * B3 * C2));
+            Console.WriteLine($"Determinant matice A1 = {determinantMaticeA1}");
+
+            int determinantMaticeA2 =
+                ((A1 * D2 * C3) + (A3 * D1 * C2) + (A2 * D3 * C1))
+                - ((A3 * D2 * C1) + (A2 * D1 * C3) + (A1 * D3 * C2));
+            Console.WriteLine($"Determinant matice A2 = {determinantMaticeA2}");
+
+            int determinantMaticeA3 =
+                ((A1 * B2 * D3) + (A3 * B1 * D2) + (A2 * B3 * D1))
+                - ((A3 * B2 * D1) + (A2 * B1 * D3) + (A1 * B3 * D2));
+            Console.WriteLine($"Determinant matice A3 = {determinantMaticeA3}");
 
             Console.WriteLine("Ukončíte stiknutím libovolné klávesy.");
             Console.Read();
