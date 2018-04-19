@@ -63,6 +63,12 @@ namespace ConsoleApp8
                 ((A1 * B2 * D3) + (A3 * B1 * D2) + (A2 * B3 * D1))
                 - ((A3 * B2 * D1) + (A2 * B1 * D3) + (A1 * B3 * D2));
             Console.WriteLine($"Determinant matice A3 = {determinantMaticeA3}");
+            
+            int x1 = determinantMaticeA1 / determinantMatice;
+            int x2 = determinantMaticeA2 / determinantMatice;
+            int x3 = determinantMaticeA3 / determinantMatice;
+
+            Console.WriteLine($"Řešením této soustavy jsou čísla: {x1}, {x2}, {x3}.");
 
             Console.WriteLine("Ukončíte stiknutím libovolné klávesy.");
             Console.Read();
