@@ -10,71 +10,109 @@ namespace ConsoleApp8
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Vítejte v programu pro výpočet soustavy tří rovnic o třech neznámých pomocí Cramerova pravidla.");
-            Console.WriteLine("Máme tři rovnice ve tvaru: A*(x1) + B*(x2) + C*(x3)= D");
-            Console.WriteLine("Já vás poprosím o zadání hodnot A,B,C a D a ukážu vám výsledky x1,x2 a x3.");
-            Console.WriteLine("\nPRVNÍ ROVNICE:");
-            Console.WriteLine("A:");
-            double A1 = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("B:");
-            double B1 = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("C:");
+            bool konec = false; //pomocná proměnná pro běh programu
 
-            double C1 = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("D:");
-            double D1 = Convert.ToDouble(Console.ReadLine());
+            do
+            {
+                //Vymazání konzole
+                Console.Clear();
 
-            Console.WriteLine("\nDRUHÁ ROVNICE:");
-            Console.WriteLine("A:");
-            double A2 = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("B:");
-            double B2 = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("C:");
-            double C2 = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("D:");
-            double D2 = Convert.ToDouble(Console.ReadLine());
+                //Výpis úvodních hlášek:
+                Console.WriteLine("Vítejte v programu pro výpočet soustavy tří rovnic o třech neznámých pomocí Cramerova pravidla.");
+                Console.WriteLine("Zvolte:");
+                Console.WriteLine("1 - pro výpočet.");
+                Console.WriteLine("Cokoliv jiného pro konec.");
+                string volba = Console.ReadLine();
 
-            Console.WriteLine("\nTŘETÍ ROVNICE:");
-            Console.WriteLine("A:");
-            double A3 = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("B:");
-            double B3 = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("C:");
-            double C3 = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("D:");
-            double D3 = Convert.ToDouble(Console.ReadLine());
+                if (volba == "1")
+                {
+                    //Výpis instrukcí
+                    Console.WriteLine("Máme tři rovnice ve tvaru: A*(x1) + B*(x2) + C*(x3)= D");
+                    Console.WriteLine("Zadejte hodnoty A,B,C a D pro každou rovnici a ukážu vám výsledky x1,x2 a x3.");
 
-            double determinantMatice = 
-                ((A1 * B2 * C3) + (A3 * B1 * C2) + (A2 * B3 * C1)) 
-                - ((A3 * B2 * C1) + (A2 * B1 * C3) + (A1 * B3 * C2));
-            Console.WriteLine($"Determinant matice = {determinantMatice}");
+                    //Zadávání tří rovnic o třech neznámých:
+                    Console.WriteLine("\nPRVNÍ ROVNICE:");
+                    Console.WriteLine("A:");
+                    double A1 = Convert.ToDouble(Console.ReadLine()); //input A1
+                    Console.WriteLine("B:");
+                    double B1 = Convert.ToDouble(Console.ReadLine()); //input B1
+                    Console.WriteLine("C:");
+                    double C1 = Convert.ToDouble(Console.ReadLine()); //input C1
+                    Console.WriteLine("D:");
+                    double D1 = Convert.ToDouble(Console.ReadLine()); //input D1
 
-            double determinantMaticeA1 =
-                ((D1 * B2 * C3) + (D3 * B1 * C2) + (D2 * B3 * C1))
-                - ((D3 * B2 * C1) + (D2 * B1 * C3) + (D1 * B3 * C2));
-            Console.WriteLine($"Determinant matice A1 = {determinantMaticeA1}");
+                    Console.WriteLine("\nDRUHÁ ROVNICE:");
+                    Console.WriteLine("A:");
+                    double A2 = Convert.ToDouble(Console.ReadLine()); //input A2
+                    Console.WriteLine("B:");
+                    double B2 = Convert.ToDouble(Console.ReadLine()); //input B2
+                    Console.WriteLine("C:");
+                    double C2 = Convert.ToDouble(Console.ReadLine()); //input C2
+                    Console.WriteLine("D:");
+                    double D2 = Convert.ToDouble(Console.ReadLine()); //input D2
 
-            double determinantMaticeA2 =
-                ((A1 * D2 * C3) + (A3 * D1 * C2) + (A2 * D3 * C1))
-                - ((A3 * D2 * C1) + (A2 * D1 * C3) + (A1 * D3 * C2));
-            Console.WriteLine($"Determinant matice A2 = {determinantMaticeA2}");
+                    Console.WriteLine("\nTŘETÍ ROVNICE:");
+                    Console.WriteLine("A:");
+                    double A3 = Convert.ToDouble(Console.ReadLine()); //input A3
+                    Console.WriteLine("B:");
+                    double B3 = Convert.ToDouble(Console.ReadLine()); //input B3
+                    Console.WriteLine("C:");
+                    double C3 = Convert.ToDouble(Console.ReadLine()); //input C3
+                    Console.WriteLine("D:");
+                    double D3 = Convert.ToDouble(Console.ReadLine()); //input D3
 
-            double determinantMaticeA3 =
-                ((A1 * B2 * D3) + (A3 * B1 * D2) + (A2 * B3 * D1))
-                - ((A3 * B2 * D1) + (A2 * B1 * D3) + (A1 * B3 * D2));
-            Console.WriteLine($"Determinant matice A3 = {determinantMaticeA3}");
+                    //Výpočet determinantu matice:
+                    double determinantMatice =
+                        ((A1 * B2 * C3) + (A3 * B1 * C2) + (A2 * B3 * C1))
+                        - ((A3 * B2 * C1) + (A2 * B1 * C3) + (A1 * B3 * C2));
+                    Console.WriteLine($"Determinant matice = {determinantMatice}");
 
-            double x1 = determinantMaticeA1 / determinantMatice;
-            x1 = Math.Round(x1, 4);
-            double x2 = determinantMaticeA2 / determinantMatice;
-            x2 = Math.Round(x2, 4);
-            double x3 = determinantMaticeA3 / determinantMatice;
-            x3 = Math.Round(x3, 4);
+                    //Výpočet determinantu matice s nahrazeným prvním sloupcem:
+                    double determinantMaticeA1 =
+                        ((D1 * B2 * C3) + (D3 * B1 * C2) + (D2 * B3 * C1))
+                        - ((D3 * B2 * C1) + (D2 * B1 * C3) + (D1 * B3 * C2));
+                    Console.WriteLine($"Determinant matice A1 = {determinantMaticeA1}");
 
-            Console.WriteLine($"Řešením této soustavy jsou čísla: {x1}; {x2}; {x3}.");
+                    //Výpočet determinantu matice s nahrazeným druhým sloupcem:
+                    double determinantMaticeA2 =
+                        ((A1 * D2 * C3) + (A3 * D1 * C2) + (A2 * D3 * C1))
+                        - ((A3 * D2 * C1) + (A2 * D1 * C3) + (A1 * D3 * C2));
+                    Console.WriteLine($"Determinant matice A2 = {determinantMaticeA2}");
 
-            Console.WriteLine("Ukončíte stiknutím libovolné klávesy.");
-            Console.Read();
+                    //Výpočet determinantu matice s nahrazeným třetím sloupcem:
+                    double determinantMaticeA3 =
+                        ((A1 * B2 * D3) + (A3 * B1 * D2) + (A2 * B3 * D1))
+                        - ((A3 * B2 * D1) + (A2 * B1 * D3) + (A1 * B3 * D2));
+                    Console.WriteLine($"Determinant matice A3 = {determinantMaticeA3}");
+
+                    //Deklarace a výpočet x1:
+                    double x1 = determinantMaticeA1 / determinantMatice;
+                    //Zaokrouhlení x1 na 4 desetinná místa:
+                    x1 = Math.Round(x1, 4);
+                    //Deklarace a výpočet x2:
+                    double x2 = determinantMaticeA2 / determinantMatice;
+                    //Zaokrouhlení x2 na 4 desetinná místa:
+                    x2 = Math.Round(x2, 4);
+                    //Deklarace a výpočet x3:
+                    double x3 = determinantMaticeA3 / determinantMatice;
+                    //Zaokrouhlení x3 na 4 desetinná místa:
+                    x3 = Math.Round(x3, 4);
+
+                    //Výpis výsledků:
+                    Console.WriteLine($"Řešením této soustavy jsou čísla: {x1}; {x2}; {x3}.");
+                    Console.WriteLine("Pokračujte stisknutím klávesy...");
+                    Console.Read();
+
+                    //volba = null;
+                }
+                else
+                {
+                    konec = true;
+                    //ukončení programu 
+                }
+
+            } while (!konec);
+                
         }
     }
 }
