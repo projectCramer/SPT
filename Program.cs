@@ -104,6 +104,8 @@ namespace TalaluApp
 
                 case "2":                                                                               //Ukonci program
                     break;
+                default:
+                    goto start;
             }
         }        
     }
