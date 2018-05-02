@@ -1,33 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleApp8
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            bool konec = false; //pomocná proměnná pro běh programu
-
-            do
-            {
-                //Vymazání konzole
-                Console.Clear();
-
-                //Výpis úvodních hlášek:
-                Console.WriteLine("Vítejte v programu pro výpočet soustavy tří rovnic o třech neznámých pomocí Cramerova pravidla.");
-                Console.WriteLine("Zvolte:");
-                Console.WriteLine("V - pro výpočet.");
-                Console.WriteLine("K - pro konec.");
-                string volba = Console.ReadLine();
-
-                if ((volba == "V") || (volba == "v"))
-                {
-                    //Výpis instrukcí
-                    Console.WriteLine("Máme tři rovnice ve tvaru: A*(x1) + B*(x2) + C*(x3)= D");
+Console.WriteLine("Máme tři rovnice ve tvaru: A*(x1) + B*(x2) + C*(x3)= D");
                     Console.WriteLine("Zadejte hodnoty A,B,C a D pro každou rovnici a ukážu vám výsledky x1,x2 a x3.");
 
                     //Zadávání tří rovnic o třech neznámých:
@@ -101,22 +72,3 @@ namespace ConsoleApp8
                     //Výpis výsledků:
                     Console.WriteLine($"Řešením této soustavy jsou čísla: {x1}; {x2}; {x3}.");
                 }
-                else if ((volba == "k") || (volba == "K"))
-                {
-                    //ukončení programu 
-                    konec = true;
-                    Console.WriteLine("Ukončuji program, na shledanou.");
-                }
-                else
-                {
-                    Console.WriteLine("Zadal jste Špatnou volbu");
-                }
-
-                Console.WriteLine("Pokračujte stisknutím klávesy...");
-                Console.Read();
-
-            } while (!konec);
-                
-        }
-    }
-}
