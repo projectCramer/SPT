@@ -1,4 +1,31 @@
-Console.WriteLine("Máme tři rovnice ve tvaru: A*(x1) + B*(x2) + C*(x3)= D");
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TalaluApp
+{
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        start:
+            Console.Clear();
+            Console.WriteLine(" -  Vitej ve vypoctarne  -");
+            Console.WriteLine(" -     Zvol moznost:     -");
+            Console.WriteLine(" -     [1] Vypocet       -");
+            Console.WriteLine(" -     [2] Konec         -");
+            Console.WriteLine();
+
+            string vyber = Console.ReadLine();
+
+            switch (vyber)
+            {                                                    //switch MENU  
+
+                case "1":
+                    Console.WriteLine("Máme tři rovnice ve tvaru: A*(x1) + B*(x2) + C*(x3)= D");
                     Console.WriteLine("Zadejte hodnoty A,B,C a D pro každou rovnici a ukážu vám výsledky x1,x2 a x3.");
 
                     //Zadávání tří rovnic o třech neznámých:
@@ -71,4 +98,13 @@ Console.WriteLine("Máme tři rovnice ve tvaru: A*(x1) + B*(x2) + C*(x3)= D");
 
                     //Výpis výsledků:
                     Console.WriteLine($"Řešením této soustavy jsou čísla: {x1}; {x2}; {x3}.");
-                }
+                    Console.WriteLine("\n Stisknete klavesu pro navrat do menu");
+                    Console.ReadLine();
+                    goto start;
+
+                case "2":                                                                               //Ukonci program
+                    break;
+            }
+        }        
+    }
+}
